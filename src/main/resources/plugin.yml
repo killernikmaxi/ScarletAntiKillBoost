@@ -1,3 +1,13 @@
 name: ScarletAntiKillBoost
 version: '${version}'
 main: it.killernik.scarletantikillboost.ScarletAntiKillBoost
+commands:
+  scarletantikillboost:
+    description: Main Command
+    usage: /scarletantikillboost
+    aliases:
+      - sakb
+      - akb
+      - killboost
+      - antikillboost
+      - boost

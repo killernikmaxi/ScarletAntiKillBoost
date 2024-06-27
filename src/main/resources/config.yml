@@ -1,0 +1,68 @@
+SETTINGS:
+  reset-interval: 20 # Imposta il tempo in minuti in cui vengono resettati i flags
+  alert-interval: 5 # Intervallo per inviare un alert
+
+LANG:
+
+  help:
+    - "&7&m--- --*---------------------------*-- ---"
+    - "&4&lSCARLETANTIKILLBOOST - HELP"
+    - ""
+    - "&4Generale"
+    - "&8* &fsakb &bhelp"
+    - "&8* &fsakb &breload"
+    - "&8* &fsakb &bviewflags [player]"
+    - "&8* &fsakb &bresetflags [player]"
+    - ""
+    - "&7&m--- --*---------------------------*-- ---"
+
+  config-reloaded: "&4&lSCARLETANTIKILLBOOST &8// &aConfig ricaricato!"
+  flags-reset: "&4&lSCARLETANTIKILLBOOST &8// &aFlags resettati con successo a %player%!"
+  view-flags: "&4&lSCARLETANTIKILLBOOST &8// &aFlags di %player%: &b%flags%."
+
+  incorrect-syntax: "&4&lSCARLETANTIKILLBOOST &8// &cErrore: Sintassi errata!"
+  specify-player: "&4&lSCARLETANTIKILLBOOST &8// &cErrore: Specifica un giocatore!"
+
+  alert-message: "&4&lSCARLETANTIKILLBOOST &8// &c%player% e' sospetto per kill-boosting! Flags: &4%flags%"
+
+CHECKS:
+
+  # Controlla se un giocatore uccide un
+  # Altro giocatore in una determinata fascia oraria
+  TIME-BASED:
+    enabled: true
+    start-hour: 0 # 24-hour format & time-zone: Europa/Roma
+    end-hour: 8
+    flag-weight: 5
+
+  # Controlla se la vittima ha lo stesso
+  # IP dell'attaccante
+  SAME-IP:
+    enabled: true
+    flag-weight: 2
+
+  # Controlla la frequenza in cui
+  # Si uccidono giocatori
+  KILL-FREQUENCY:
+    enabled: true
+    max-kills-per-minute: 5
+    flag-weight: 3
+
+  # Controlla la frequenza in cui
+  # Si uccide uno stesso giocatore
+  SAME-PLAYER-KILLS:
+    enabled: true
+    max-kills-per-player-per-minute: 3
+    flag-weight: 4
+
+WEBHOOKS:
+  ALERT:
+    enabled: false
+    webhook-url: "YOUR_WEBHOOK_URL"
+    avatar-url: "YOUR_AVATAR_URL"
+    thumbnail-url: "YOUR_THUMBNAIL_URL"
+
+    username: "SCARLETANTIKILLBOOST"
+
+    title: "ALLERTA KILLBOOST"
+    description: "%player% e' sospetto di kill-boosting! Flags: &4%flag%"
