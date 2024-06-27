@@ -17,16 +17,6 @@ public final class ScarletAntiKillBoost extends JavaPlugin {
     private ConfigManager configManager;
     private ChecksManager checksManager;
 
-
-    /*
-
-        FIXARE SAME IP
-        FIXARE INTERVALLO, SE FLAGGO 2, 2, 3, 2, 6 E NON ARRIVA
-        AD UN MULTIPLO DI 5 NON FLAGGA
-        METTERE I PERMS
-
-    */
-
     @Override
     public void onEnable() {
         instance = this;
